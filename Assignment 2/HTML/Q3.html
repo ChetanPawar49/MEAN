@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Address Book</title>
+    <link rel="stylesheet" href="/CSS/Q3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Address Book</h1>
+        
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" required>
+            </div>
+            <button type="submit">Add Contact</button>
+        </form>
+
+        <h2>Stored Contacts</h2>
+        <div id="contacts"></div>
+    </div>
+
+    <script src="/JS/Q3.js"></script>
+</body>
+</html>

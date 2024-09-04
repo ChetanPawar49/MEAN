@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f4f4f4; */
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    /* background-color: #fff; */
+    background: linear-gradient(#317aa1, #813daf);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#imagePreview {
+    margin: 20px 0;
+}
+
+#imagePreview img {
+    max-width: 100%;
+    height: auto;
+}
+
+#imageDimensions {
+    margin-top: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}

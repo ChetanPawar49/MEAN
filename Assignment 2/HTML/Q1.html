@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Q1.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" class="username" placeholder="Enter Username">
+        </div>
+
+        <div>
+            <label for="pass">Password</label>
+            <input type="password" name="pass" class="pass" placeholder="Enter Password">
+        </div>
+        
+        <button value="submit">Submit</button>
+    </div>
+
+    <script src="/JS/Q1.js"></script>
+    <!-- <script>
+        document.querySelector("button").addEventListener("click", function(event) {
+            const userInput = document.querySelector('.username');
+            const passInput = document.querySelector('.pass');
+            
+            const username = userInput.value;
+            const password = passInput.value;
+        
+            const userValidation = /^[a-zA-Z0-9.]/;
+            if(!userValidation.test(username))
+            {
+                alert("Username can only contains letters, numbers and dots");
+                event.preventDefault();
+                return;
+            }
+
+            // Password validation: At least 8 characters long, first letter capital
+            const passValidation = /^[A-Z][a-zA-Z0-9@]{7,}$/;
+            if (!passValidation.test(password)) {
+                alert('Password must be at least 8 characters long and start with a capital letter.');
+                event.preventDefault();
+                return;
+            }
+
+            // If both validations pass
+            alert('Form submitted successfully!');
+
+            userInput.value = '';
+            passInput.value = '';
+        });
+    </script> -->
+</body>
+</html>

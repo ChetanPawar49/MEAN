@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Order Form</title>
+    <link rel="stylesheet" href="/CSS/Q2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Online Book Order Form</h1>
+        
+        <div class="book-list">
+            <!-- Book 1 -->
+            <div class="book" onclick="toggleDetails('book1Details')">
+                <img src="/Images/book1.jpg" alt="Book Image 1">
+                <div class="book-info">
+                    <h2>Harry Potter</h2>
+                    <p>Author: J.K Rowling</p>
+                    <p>Description: This is a brief description of Book 1.</p>
+                    <p>Reviews: ★★★★☆</p>
+                </div>
+                <input type="radio" name="book" value="Book Title 1">
+            </div>
+            <div id="book1Details" class="book-details" style="display: none;">
+                <h3>Topics</h3>
+                <ul>
+                    <li>Introduction</li>
+                    <li>Chapter 1: Getting Started</li>
+                    <li>Chapter 2: Advanced Topics</li>
+                    <li>Conclusion</li>
+                </ul>
+                <h3>Other Details</h3>
+                <p>Publisher: ABC Publishing</p>
+                <p>ISBN: 123-456-789</p>
+                <p>Pages: 350</p>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book" onclick="toggleDetails('book2Details')">
+                <img src="/Images/book2.jpg" alt="Book Image 2">
+                <div class="book-info">
+                    <h2>Lord of the rings</h2>
+                    <p>Author: John Ronald Reuel Tolkien</p>
+                    <p>Description: This is a brief description of Book 2.</p>
+                    <p>Reviews: ★★★★☆</p>
+                </div>
+                <input type="radio" name="book" value="Book Title 2">
+            </div>
+            <div id="book2Details" class="book-details" style="display: none;">
+                <h3>Topics</h3>
+                <ul>
+                    <li>Introduction</li>
+                    <li>Chapter 1: Getting Started</li>
+                    <li>Chapter 2: Advanced Topics</li>
+                    <li>Conclusion</li>
+                </ul>
+                <h3>Other Details</h3>
+                <p>Publisher: XYZ Publishing</p>
+                <p>ISBN: 987-654-321</p>
+                <p>Pages: 400</p>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book" onclick="toggleDetails('book3Details')">
+                <img src="/Images/book3.jpg" alt="Book Image 3">
+                <div class="book-info">
+                    <h2>Sherlock Holmes</h2>
+                    <p>Author: Arthur Conan Doyle</p>
+                    <p>Description: This is a brief description of Book 3.</p>
+                    <p>Reviews: ★★★★☆</p>
+                </div>
+                <input type="radio" name="book" value="Book Title 3">
+            </div>
+            <div id="book3Details" class="book-details" style="display: none;">
+                <h3>Topics</h3>
+                <ul>
+                    <li>Introduction</li>
+                    <li>Chapter 1: Getting Started</li>
+                    <li>Chapter 2: Advanced Topics</li>
+                    <li>Conclusion</li>
+                </ul>
+                <h3>Other Details</h3>
+                <p>Publisher: DEF Publishing</p>
+                <p>ISBN: 456-123-789</p>
+                <p>Pages: 300</p>
+            </div>
+        </div>
+
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <h2>Order Details</h2>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="payment">Payment Details:</label>
+            <input type="text" id="payment" name="payment" required>
+
+            <label for="quantity">Number of Copies:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <button type="submit">Place Order</button>
+        </form>
+        <p id="response">Order Pending</p>
+    </div>
+
+    <script src="/JS/Q2.js"></script>
+</body>
+</html>
