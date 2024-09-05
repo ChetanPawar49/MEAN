@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Text</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ebead1; /* Optional: a background color for the page */
+        }
+        .image-container {
+            position: relative;
+            display: inline-block;
+            max-width:100%;
+        }
+
+        .image-container img {
+            display: block;
+            width:700px;
+            height:400px;
+        }
+
+        .top-right-text {
+            position: absolute;
+            top: 10px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            color: rgb(50, 44, 10); /* Text color */
+            background-color: rgba(255, 255, 255, 0.5); /* Background color with transparency */
+            padding: 5px; /* Padding around the text */
+            font-size: 20px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="/Images/rolls_royce.jpg" alt="Image Description">
+        <div class="top-right-text">Rolls Royce</div>
+    </div>
+</body>
+</html>

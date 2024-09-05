@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Institute Home Page</title>
+    <link rel="stylesheet" href="q4.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Educational Institute</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/HTML/q4.html">Home</a></li>
+                <li><a href="/HTML/institute.html">Institute Details</a></li>
+                <li><a href="/HTML/course.html">Course Details</a></li>
+                <li><a href="/HTML/notices.html">Notices and Circulars</a></li>
+                <li><a href="/HTML/contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="slider">
+            <img src="/Images/img1.jpg" alt="Institute Highlight 1">
+            <img src="/Images/img2.jpg" alt="Institute Highlight 2">
+            <img src="/Images/img3.jpg" alt="Institute Highlight 3">
+        </div>
+        
+        <section class="welcome">
+            <h2>Welcome to Our Educational Institute</h2>
+            <p>Providing quality education and shaping the future of students with dedicated faculty and state-of-the-art facilities.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Educational Institute. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple image slider functionality
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.slider img');
+        const maxIndex = images.length;
+
+        function showNextImage() {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % maxIndex;
+            images[currentIndex].style.display = 'block';
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    background: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+table th {
+    font-weight: bold;
+}
+
+.table-cell {
+    font-size: 0.9rem;
+}
+
+/* Specific class styles */
+.project {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.mean {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.python {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.testing {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}

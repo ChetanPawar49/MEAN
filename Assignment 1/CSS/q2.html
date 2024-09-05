@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Rowspan</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin:auto;
+            margin-top:50px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            /* background-color: #f5f5f5; */
+            background-color: lightgrey;
+        }
+        .name, .address {
+            text-align: center;
+        }
+        .percentage {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th class="name" rowspan="2">Name</th>
+            <th class="address">&nbsp</th>
+            <th class="percentage" rowspan="2">Percentage</th>
+        </tr>
+        <tr>
+            <th class="address">Address</th>
+        </tr>
+       
+        <tr>
+            <td class="name" rowspan="2">&nbsp</th>
+            <td class="address">&nbsp</td>
+            <td class="percentage" rowspan="2">&nbsp</td>
+        </tr>
+        <tr>
+            <td class="address">&nbsp</td>
+        </tr>
+        
+        <tr>
+            <td class="name" rowspan="2">&nbsp</th>
+            <td class="address">&nbsp</td>
+            <td class="percentage" rowspan="2">&nbsp</td>
+        </tr>
+        <tr>
+            <td class="address">&nbsp</td>
+        </tr>
+
+        <tr>
+            <td class="name" rowspan="2">&nbsp</th>
+            <td class="address">&nbsp</td>
+            <td class="percentage" rowspan="2">&nbsp</td>
+        </tr>
+        <tr>
+            <td class="address">&nbsp</td>
+        </tr>
+        
+    </table>
+</body>
+</html>
