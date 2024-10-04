@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <script src="D:/Sem-III/MEAN stack/angular-1.8.2/angular-1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="studentApp" ng-controller="studentCtrl">
+    <h2>Student Data</h2>
+    
+    <table border="1" width="50%">
+        <tr>
+            <th>Name</th>
+            <th>Marks</th>
+        </tr>
+        <tr ng-repeat="student in students">
+            <td>{{student.name}}</td>
+            <td>{{student.marks}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    // Defining the AngularJS module
+    var app = angular.module('studentApp', []);
+    
+    // Defining the controller
+    app.controller('studentCtrl', function($scope) {
+        // Array holding student data
+        $scope.students = [
+            { name: 'Alice', marks: 85 },
+            { name: 'Bob', marks: 92 },
+            { name: 'Charlie', marks: 78 },
+            { name: 'David', marks: 88 },
+            { name: 'Eva', marks: 91 }
+        ];
+    });
+</script>
+
+</body>
+</html>

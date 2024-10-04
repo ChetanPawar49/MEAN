@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <!-- Include AngularJS from CDN -->
+  <script src="D:/Sem-III/MEAN stack/angular-1.8.2/angular-1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      text-align: center;
+    }
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body ng-app="currencyApp" ng-controller="CurrencyController">
+  <div class="container">
+    <h2>Currency Converter</h2>
+
+    <!-- Input Field for INR -->
+    <input type="number" ng-model="amountInINR" placeholder="Enter amount in INR" />
+
+    <!-- Button to Trigger Conversion -->
+    <button ng-click="convert()">Convert</button>
+
+    <!-- Display Results -->
+    <div ng-if="amountInUSD !== null && amountInEUR !== null">
+      <p>Amount in USD: {{ amountInUSD }}</p>
+      <p>Amount in EUR: {{ amountInEUR }}</p>
+    </div>
+
+    <div ng-if="amountInINR && amountInUSD === null">
+      <p>Please enter a valid amount greater than 0.</p>
+    </div>
+  </div>
+
+  <script>
+    // AngularJS App and Controller
+    var app = angular.module('currencyApp', []);
+    app.controller('CurrencyController', function($scope) {
+      // Conversion Rates (update as per current rates)
+      const INR_TO_USD = 0.012;  // Example: 1 INR = 0.012 USD
+      const INR_TO_EUR = 0.011;  // Example: 1 INR = 0.011 EUR
+
+      // Conversion function
+      $scope.convert = function() {
+        if ($scope.amountInINR && $scope.amountInINR > 0) {
+          $scope.amountInUSD = $scope.amountInINR * INR_TO_USD;
+          $scope.amountInEUR = $scope.amountInINR * INR_TO_EUR;
+        } else {
+          $scope.amountInUSD = null;
+          $scope.amountInEUR = null;
+        }
+      };
+    });
+  </script>
+</body>
+</html>

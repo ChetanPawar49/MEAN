@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Concatenation with Filter</title>
+  <!-- Include AngularJS from CDN -->
+  <script src="D:/Sem-III/MEAN stack/angular-1.8.2/angular-1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      text-align: center;
+    }
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body ng-app="stringApp" ng-controller="StringController">
+  <div class="container">
+    <h2>String Concatenation</h2>
+
+    <!-- Input Fields for Two Strings -->
+    <input type="text" ng-model="firstString" placeholder="Enter first string" />
+    <input type="text" ng-model="secondString" placeholder="Enter second string" />
+
+    <!-- Display Concatenated Result Using Filter -->
+    <p>Concatenated Result: {{ firstString | concatenate: secondString }}</p>
+  </div>
+
+  <script>
+    // Define the AngularJS app and controller
+    var app = angular.module('stringApp', []);
+
+    // Define a custom filter named 'concatenate'
+    app.filter('concatenate', function() {
+      return function(input1, input2) {
+        // Check if both inputs are defined and not null
+        if (input1 && input2) {
+          return input1 + ' ' + input2;
+        } else {
+          return '';
+        }
+      };
+    });
+
+    // Define a controller (optional if logic is needed in future)
+    app.controller('StringController', function($scope) {
+      $scope.firstString = '';  // Initialize empty strings
+      $scope.secondString = '';
+    });
+  </script>
+</body>
+</html>

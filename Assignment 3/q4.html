@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart Form</title>
+  <script src="D:/Sem-III/MEAN stack/angular-1.8.2/angular-1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      margin: 50px;
+      text-align: center;
+    }
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input[type="text"], select {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .category, .items {
+      text-align: left;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #750505;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d6abab;
+      color: black;
+    }
+    .summary {
+      border: 1px solid #750505;
+      border-radius: 8px;
+      margin: 5px auto;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body ng-app="shoppingApp" ng-controller="ShoppingController">
+  <div class="container">
+    <h2>Shopping Cart</h2>
+    <form name="shoppinForm" ng-submit="submitForm($event)" novalidate>
+      <input type="text" ng-model="user.name" placeholder="Enter your name" required />
+      <div class="category">
+        <p>Select Category:</p>
+        <label>
+          <input type="radio" ng-model="user.category" value="Electronics" required /> Electronics
+        </label><br />
+        <label>
+          <input type="radio" ng-model="user.category" value="Clothing" required /> Clothing
+        </label><br />
+        <label>
+          <input type="radio" ng-model="user.category" value="Groceries" required /> Groceries
+        </label>
+      </div>
+      <div class="items">
+        <p>Select Items:</p>
+        <select ng-model="user.selectedItem" ng-options="item as item.name for item in items[user.category]" required>
+          <option value="" disabled selected>Select an item</option>
+        </select>
+      </div>
+      <button type="submit">Add to Cart</button>
+    </form>
+
+    <div ng-if="cartVisible && user.items.length > 0" class="summary">
+      <h3>Cart Summary</h3>
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <ul>
+        <li ng-repeat="item in user.items">
+          {{ item.name }} ({{ item.price }})
+        </li>
+      </ul>
+      <p><strong>Total Price:</strong> {{ user.totalPrice }}</p>
+    </div>
+  </div>
+
+  <script>
+    var app = angular.module('shoppingApp', []);
+    app.controller('ShoppingController', function($scope) {
+      $scope.user = {
+        name: '',
+        category: '',
+        selectedItem: null,
+        items: [],
+        totalPrice: 0
+      };
+
+      $scope.items = {
+        'Electronics': [
+          { name: 'Laptop', price: 1000 },
+          { name: 'Mobile Phone', price: 500 },
+          { name: 'Smart Watch', price: 200 }
+        ],
+        'Clothing': [
+          { name: 'Shirt', price: 20 },
+          { name: 'Pants', price: 30 },
+          { name: 'Shoes', price: 40 }
+        ],
+        'Groceries': [
+          { name: 'Rice', price: 10 },
+          { name: 'Wheat', price: 15 },
+          { name: 'Vegetables', price: 20 }
+        ]
+      };
+
+      $scope.cartVisible = false;
+
+      $scope.submitForm = function(event) {
+        event.preventDefault();
+
+        // Check if the form is valid
+        if ($scope.shoppinForm.$valid) {
+          if ($scope.user.category && $scope.user.selectedItem) {
+            // Use the selectedItem directly since it holds the entire item object
+            var selectedItem = $scope.user.selectedItem;
+            $scope.user.items.push({
+              name: selectedItem.name,
+              price: selectedItem.price
+            });
+            $scope.user.totalPrice += selectedItem.price;
+            $scope.cartVisible = true;
+            alert("Item added to cart successfully!");
+            // Reset the selected item
+            $scope.user.selectedItem = null;
+          }
+        } else {
+          alert("Please complete all fields");
+        }
+      };
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Array Elements</title>
+  <!-- Include AngularJS from CDN -->
+  <script src="D:/Sem-III/MEAN stack/angular-1.8.2/angular-1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      text-align: center;
+    }
+    ul {
+      text-align: left;
+      width: 300px;
+      margin: 0 auto;
+      padding: 0;
+      list-style-type: disc;
+    }
+    li {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body ng-app="arrayApp" ng-controller="ArrayController">
+  <div class="container">
+    <h2>Bulleted List of Items</h2>
+    <!-- Display Array Elements in a Bulleted List -->
+    <ul>
+      <li ng-repeat="item in items">{{ item }}</li>
+    </ul>
+  </div>
+
+  <script>
+    // Define the AngularJS app
+    var app = angular.module('arrayApp', []);
+
+    // Define the controller that manages the array of items
+    app.controller('ArrayController', function($scope) {
+      // Initialize an array of elements
+      $scope.items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+    });
+  </script>
+</body>
+</html>

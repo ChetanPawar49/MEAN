@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        /* Basic styling for form and table */
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th, td {
+            text-align: left;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body ng-app="userApp" ng-controller="userCtrl">
+
+    <h2>User Registration Form</h2>
+    <form ng-submit="registerUser()">
+        <img src="college_image.jpg" alt="College Image" width="200"><br><br>
+
+        <label for="user_id">User ID (Required):</label>
+        <input type="text" id="user_id" ng-model="newUser.userId" required><br><br>
+
+        <label for="name">Name (Required):</label>
+        <input type="text" id="name" ng-model="newUser.name" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" ng-model="newUser.address"><br><br>
+
+        <label for="dept">Department:</label>
+        <select id="dept" ng-model="newUser.department">
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Data Science">Data Science</option>
+        </select><br><br>
+
+        <label for="course">Course:</label>
+        <select id="course" ng-model="newUser.course">
+            <option value="B.Sc.">B.Sc.</option>
+            <option value="M.Sc.">M.Sc.</option>
+            <option value="PhD">PhD</option>
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>Registered Users</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.userId}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.department}}</td>
+                <td>{{user.course}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<script>
+    var app = angular.module('userApp', []);
+    
+    app.controller('userCtrl', function($scope) {
+        // Predefined users array with three users
+        $scope.users = [
+            { userId: 'U101', name: 'Alice', address: '123 Main St', department: 'Computer Science', course: 'M.Sc.' },
+            { userId: 'U102', name: 'Bob', address: '456 Oak Ave', department: 'Data Science', course: 'PhD' },
+            { userId: 'U103', name: 'Charlie', address: '789 Pine Rd', department: 'Information Technology', course: 'B.Sc.' }
+        ];
+
+        // Empty object for new user data
+        $scope.newUser = {};
+
+        // Function to handle user registration
+        $scope.registerUser = function() {
+            // Check if the required fields are filled
+            if ($scope.newUser.userId && $scope.newUser.name) {
+                // Push the new user to the users array
+                $scope.users.push($scope.newUser);
+
+                // Clear the form after submission
+                $scope.newUser = {};
+            } else {
+                alert('User ID and Name are required!');
+            }
+        };
+    });
+</script>
+
+</body>
+</html>
