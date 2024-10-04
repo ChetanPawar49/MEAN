@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="businessApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Homepage</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <style>
+        /* Basic styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content section styling */
+        .content {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#!/home">Home</a></li>
+            <li><a href="#!/policies">Policies</a></li>
+            <li><a href="#!/about">About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content area where routed content will appear -->
+    <div ng-view></div>
+
+    <script>
+        // Define the AngularJS app and configure routes
+        var app = angular.module('businessApp', ['ngRoute']);
+
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/home", {
+                    templateUrl: "home.html"
+                })
+                .when("/policies", {
+                    templateUrl: "policies.html"
+                })
+                .when("/about", {
+                    templateUrl: "about.html"
+                })
+                .otherwise({
+                    redirectTo: '/home'
+                });
+        });
+
+    </script>
+
+    <script type="text/ng-template" id="home.html">
+        <div class="content">
+            <h1>Welcome to Our Business</h1>
+            <p>Our business is dedicated to providing the best services in the industry. We specialize in various domains and our team of professionals is always ready to assist you with any needs.</p>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="policies.html">
+        <div class="content">
+            <h1>Our Policies</h1>
+            <p>At our business, we believe in transparency and fairness. Our policies are designed to protect the interests of our customers and employees, ensuring smooth and ethical operations.</p>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="about.html">
+        <div class="content">
+            <h1>About Us</h1>
+            <p>We are a leading business with a history of delivering high-quality products and services. With a customer-centric approach, we have built a reputation of trust and reliability in the industry.</p>
+        </div>
+    </script>
+
+    <!-- AngularJS Scripts -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="app.js"></script> -->
+</body>
+
+</html>
